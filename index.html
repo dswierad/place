@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+    <label id="error"></label><br/>
+
+    <label>
+        Suma zarobiona przez zespół
+        <input type="text" name="sum" value=""/>
+    </label>
+
+    <table>
+        <tr>
+            <td>Osoba</td>
+            <td>Dni pracujące</td>
+            <td>Dni wolne</td>
+            <td>Przepracowane soboty</td>
+            <td>Do wypłaty</td>
+        </tr>
+        <tr>
+            <td>
+                A
+            </td>
+            <td>
+                <input type="text" name="workdays[a]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="holidays[a]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="weekend[a]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="paycheck[a]" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                S
+            </td>
+            <td>
+                <input type="text" name="workdays[s]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="holidays[s]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="weekend[s]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="paycheck[s]" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                J
+            </td>
+            <td>
+                <input type="text" name="workdays[j]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="holidays[j]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="weekend[j]" value="0"/>
+            </td>
+            <td>
+                <input type="text" name="paycheck[j]" value="0"/>
+            </td>
+        </tr>
+    </table>
+
+    Stawka godzinowa <span id="hourly">-</span>
+
+    <br/>
+    <button>Przelicz</button>
+
+    </body>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</html>
