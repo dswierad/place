@@ -27,8 +27,6 @@ function calculate()
         j: 0
     }
 
-    console.log(sum);
-
     if (sum <= 0 || isNaN(sum)) {
         error('Podaj sumę zarobioną przez zespół');
     }
@@ -41,12 +39,11 @@ function calculate()
     if (workdaysSum > 0) {
         var rate = sum / workdaysSum;
 
+        $('#hourly').html(Math.round((rate / 8) * 100) / 100);
+
         paycheck.a = rate * parseInt($('[name=workdays\\[a\\]').val());
         paycheck.s = rate * parseInt($('[name=workdays\\[s\\]]').val());
         paycheck.j = rate * parseInt($('[name=workdays\\[j\\]]').val());
-
-        console.log(workdaysSum, rate);
-        console.log(paycheck);
     }
 
     // Urlop
@@ -54,14 +51,11 @@ function calculate()
     paycheck.s += getHolidaysPaycheck(parseInt($('[name=holidays\\[s\\]]').val()));
     paycheck.j += getHolidaysPaycheck(parseInt($('[name=holidays\\[j\\]]').val()));
 
-    console.log(paycheck);
-
     // Soboty
     paycheck.a += getWeekendPaycheck(parseInt($('[name=weekend\\[a\\]]').val()));
     paycheck.s += getWeekendPaycheck(parseInt($('[name=weekend\\[s\\]]').val()));
     paycheck.j += getWeekendPaycheck(parseInt($('[name=weekend\\[j\\]]').val()));
 
-    console.log(paycheck);
     $('[name=paycheck\\[a\\]]').val(Math.round(paycheck.a * 100) / 100, 2);
     $('[name=paycheck\\[s\\]]').val(Math.round(paycheck.s * 100) / 100, 2);
     $('[name=paycheck\\[j\\]]').val(Math.round(paycheck.j * 100) / 100, 2);
@@ -69,5 +63,6 @@ function calculate()
 
 $('button').click(function() {
     error('');
+    $('#hourly').html('');
     calculate();
 });
